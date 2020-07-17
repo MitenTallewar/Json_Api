@@ -19,7 +19,7 @@ class Json_Api:
 
         print("Calling url : ",s)
         response = requests.get(s)
-        json_data =response.json()
+        json_data = response.content
         return self.json_to_Pydata(json_data) 
 
     def get_total_pages(self,py_data):
@@ -52,8 +52,7 @@ class Json_Api:
 
 
     def json_to_Pydata(self,json_data):
-        dump_data = json.dumps(json_data)
-        py_data = json.loads(dump_data)
+        py_data = json.loads(json_data)
         return py_data
 
 if __name__ == '__main__':
